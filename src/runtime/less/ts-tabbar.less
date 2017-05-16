@@ -3,13 +3,22 @@
 .ts-tabbar {
 	&.ts-bg-lite,
 	&.ts-bg-white {
-		background-color: @ts-lite;
+		background-color: @ts-white;
 	}
 	&.ts-bg-lite {
 		.ts-toolbar-tabs {
 			.ts-tab.ts-selected {
 				.ts-button {
-					background-color: @ts-lite-liter;
+					position: relative;
+					&:before {
+						content: "";
+						position: absolute;
+						bottom: 0;
+						left: @ts-unit-half;
+						right: @ts-unit-half;
+						height: 2px;
+						background-color: @ts-black;
+					}
 				}
 			}
 		}
