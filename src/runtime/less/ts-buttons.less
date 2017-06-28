@@ -646,6 +646,7 @@
 		};
 	}
 }
+.ts-accent-blue,
 .ts-bg-blue {
 	.ts-button:not(:disabled) {
 		&.ts-primary {
@@ -668,6 +669,7 @@
 		}
 	}	
 }
+.ts-accent-green,
 .ts-bg-green {
 	.ts-button:not(:disabled) {
 		&.ts-primary {
@@ -724,7 +726,92 @@
 	}
 }
 
-// Loading bar..................................................................
+// Accent Colors ...............................................................
+
+.ts-accent-red,
+.ts-accent-green,
+.ts-accent-orange,
+.ts-accent-blue {
+	.ts-button:not(:disabled) {
+		&.ts-tertiary {
+			background-color: rgba(255,255,255,0);
+			color: @ts-black;
+			border: 1px solid @ts-lite;
+			&:focus:before {
+				border-color: @ts-lite;
+			}
+		}
+	}
+}
+.ts-accent-orange {
+	.ts-button:not(:disabled) {
+		.mixin-active-lite();
+		&.ts-primary {
+			background-color: @ts-orange;
+			color: @ts-orange-text;
+			&:focus:before {
+				border-color: @ts-orange-dark;
+			}
+		}
+		&.ts-secondary {
+			background-color: @ts-orange;
+			color: @ts-orange-text;
+			&:focus:before {
+				border-color: @ts-orange-dark;
+			}
+		}
+	}
+}
+.ts-accent-blue {
+	.ts-button:not(:disabled),
+	&.ts-active:active {
+		&.ts-primary {
+			background-color: @ts-blue;
+			color: @ts-blue-text;
+			&:focus:before {
+				border-color: @ts-blue-dark;
+			}
+		}
+		&.ts-secondary {
+			background-color: @ts-blue;
+			color: @ts-blue-text;
+			&:focus:before {
+				border-color: @ts-blue-dark;
+			}
+		}
+	}
+}
+.ts-accent-green {
+	.ts-button:not(:disabled) {
+		.mixin-active-lite();
+		&.ts-primary {
+			background-color: @ts-green;
+			color: @ts-green-text;
+			&:focus:before {
+				border-color: @ts-green-dark;
+			}
+		}
+		&.ts-secondary {
+			background-color: @ts-green;
+			color: @ts-green-text;
+			&:focus:before {
+				border-color: @ts-green-dark;
+			}
+		}
+	}
+}
+// .ts-accent-blue {
+// 	.ts-primary {
+// 		background-color: rgba(255,255,255,0);
+// 		color: @ts-black;
+// 		border: 1px solid @ts-lite;
+// 		&:focus:before {
+// 			border-color: @ts-lite;
+// 		}
+// 	}
+// }
+
+// Loading bar .................................................................
 
 .ts-mixin-keyframes(move-progress-bar, {
 	background-position: 0 0;
