@@ -62,7 +62,7 @@
 		content: "";
 		.ts-mixin-maximize(@outset, @outset, @outset, @outset);
 		border-radius: @ts-unit + 2.5px;
-		border: 2.75px solid transparent;
+		border: 2px solid transparent;
 	}
 	&.ts-ready:before {
 		.ts-mixin-transition(border-color, @ts-transition-now);
@@ -89,6 +89,26 @@
 	}
 	&:focus:before {
 		border-color: rgba(255,255,255,0.6);
+	}
+	&.ts-active:active {
+		background-color: @activebackground !important;
+		&:after {
+			border-color: @activebordercolor !important;
+		}
+	}
+}
+.mixin-button-accent(@background: transparent, @activebackground: transparent, @bordercolor: transparent, @activebordercolor: transparent) {
+	color: @ts-white;
+	background-color: @background;
+	&:after {
+		transition: border-color @ts-transition-now;
+		border: 1px solid @bordercolor;
+		&:after {
+			border-color: @bordercolor;
+		}
+	}
+	&:focus:before {
+		border-color: @activebordercolor;
 	}
 	&.ts-active:active {
 		background-color: @activebackground !important;
@@ -734,82 +754,100 @@
 .ts-accent-blue {
 	.ts-button:not(:disabled) {
 		&.ts-tertiary {
-			background-color: rgba(255,255,255,0);
-			color: @ts-black;
-			border: 1px solid @ts-lite;
-			&:focus:before {
-				border-color: @ts-lite;
+			.mixin-button-accent(
+				@ts-white,
+				@ts-lite-liter,
+				transparent,
+				@ts-lite
+			);
+			&.ts-tertiary:not(.ts-nofocus) {
+//				background-color: @ts-lite-liter;
+				border: 1px solid @ts-lite-dark;
 			}
+			color: @ts-black
+		}
+	}
+}
+.ts-accent-red {
+	.ts-button:not(:disabled) {
+		&.ts-primary {
+			.mixin-button-accent(
+				@ts-red,
+				@ts-red-dark,
+				transparent,
+				@ts-red-darker
+			);
+		}
+		&.ts-secondary {
+			.mixin-button-accent(
+				@ts-red,
+				@ts-red-dark,
+				transparent,
+				@ts-red-darker
+			);
 		}
 	}
 }
 .ts-accent-orange {
 	.ts-button:not(:disabled) {
-		.mixin-active-lite();
 		&.ts-primary {
-			background-color: @ts-orange;
-			color: @ts-orange-text;
-			&:focus:before {
-				border-color: @ts-orange-dark;
-			}
+			.mixin-button-accent(
+				@ts-orange,
+				@ts-orange-dark,
+				transparent,
+				@ts-orange-darker
+			);
 		}
 		&.ts-secondary {
-			background-color: @ts-orange;
-			color: @ts-orange-text;
-			&:focus:before {
-				border-color: @ts-orange-dark;
-			}
+			.mixin-button-accent(
+				@ts-orange,
+				@ts-orange-dark,
+				transparent,
+				@ts-orange-darker
+			);
 		}
 	}
 }
 .ts-accent-blue {
-	.ts-button:not(:disabled),
-	&.ts-active:active {
+	.ts-button:not(:disabled) {
 		&.ts-primary {
-			background-color: @ts-blue;
-			color: @ts-blue-text;
-			&:focus:before {
-				border-color: @ts-blue-dark;
-			}
+			.mixin-button-accent(
+				@ts-blue,
+				@ts-blue-dark,
+				transparent,
+				@ts-blue-darker
+			);
 		}
 		&.ts-secondary {
-			background-color: @ts-blue;
-			color: @ts-blue-text;
-			&:focus:before {
-				border-color: @ts-blue-dark;
-			}
+			.mixin-button-accent(
+				@ts-blue,
+				@ts-blue-dark,
+				transparent,
+				@ts-blue-darker
+			);
 		}
 	}
 }
 .ts-accent-green {
 	.ts-button:not(:disabled) {
-		.mixin-active-lite();
 		&.ts-primary {
-			background-color: @ts-green;
-			color: @ts-green-text;
-			&:focus:before {
-				border-color: @ts-green-dark;
-			}
+			.mixin-button-accent(
+				@ts-green,
+				@ts-green-dark,
+				transparent,
+				@ts-green-darker
+			);
 		}
 		&.ts-secondary {
-			background-color: @ts-green;
-			color: @ts-green-text;
-			&:focus:before {
-				border-color: @ts-green-dark;
-			}
+			.mixin-button-accent(
+				@ts-green,
+				@ts-green-dark,
+				transparent,
+				@ts-green-darker
+			);
 		}
 	}
 }
-// .ts-accent-blue {
-// 	.ts-primary {
-// 		background-color: rgba(255,255,255,0);
-// 		color: @ts-black;
-// 		border: 1px solid @ts-lite;
-// 		&:focus:before {
-// 			border-color: @ts-lite;
-// 		}
-// 	}
-// }
 
 // Loading bar .................................................................
 

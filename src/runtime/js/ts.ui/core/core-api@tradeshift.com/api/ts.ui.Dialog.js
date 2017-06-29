@@ -159,16 +159,19 @@ ts.ui.Dialog.DEFAULT_TIME = 1500;
 				config,
 				GuiObject.extendmissing(
 					{ tertiary: 'cancel' },
-					GuiObject.extendmissing(type === Dialog.DANGER ? { danger: 'accept' } : {}, {
-						type: type,
-						icon: geticon(type),
-						items: [
-							{
-								item: 'text',
-								text: tostring(strings[0])
-							}
-						]
-					})
+					GuiObject.extendmissing(
+						type === Dialog.DANGER || type === Dialog.ERROR ? { danger: 'accept' } : {},
+						{
+							type: type,
+							icon: geticon(type),
+							items: [
+								{
+									item: 'text',
+									text: tostring(strings[0])
+								}
+							]
+						}
+					)
 				)
 			)
 		)
